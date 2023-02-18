@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<div class="row">
+    <div class="col-6">
+        <h5 class="card-header" >New Order{{n_order|length}}</h5>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">User</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {%for order in n_order%}
+            <tr>
+                <td>{{order.item.name}}</td>
+                <td>{{order.user}}</td>
+                <td>{{order.date}}</td>
+                <td><a href="{% url 'orderdetil' order.id %}" class="btn btn-primary" >Accept Order</a> </td>
+                                <td><a href="" class="btn btn-dark" >Pick Order</a> </td>
+
+            </tr>
+            {%endfor%}
+
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-6">
+
+    </div>
+</div>
+
+{%endblock%}

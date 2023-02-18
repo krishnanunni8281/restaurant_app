@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<form action="" method="post" >
+    {%csrf_token%}
+    are you sure to delete food{{object}}
+    <input type="submit" value="Delete" class="btn btn-danger">
+</form>
+{%endblock %}

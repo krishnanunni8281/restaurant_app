@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<center><h1>Food Details</h1></center>
+<div class="row"></div>
+
+<div class="row mt-5 ">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+
+
+            </tr>
+            {% for food in food %}
+            <tr>
+                <td>{{food.name}}</td>
+                <td>{{food.price}}</td>
+                <td>{{food.image}}</td>
+
+
+                <td><a href="{% url 'empfood_detail' food.id %}" class="btn btn-success">View</a></td>
+                <td><a href="{% url 'empfood_edit' food.id %}" class="btn btn-dark">Edit</a></td>
+                <td><a href="{% url 'empdeletefood' food.id %}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+    <div class="col-2"></div>
+</div>
+{% endblock %}

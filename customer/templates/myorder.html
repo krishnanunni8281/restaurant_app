@@ -1,0 +1,35 @@
+{% extends 'basecustomer.html' %}
+{% block body_block %}
+{%for order in orders%}
+<div class="row mt-5 ">
+    <div class="col-4"><img src="{{order.item.image.url}}" width="70%" height="180px" alt=""></div>
+    <div class="col-3">
+        <div class="mt-4 p-4"><h5>{{order.item.name}}</h5></div>
+    </div>
+
+    <div class="col-3 mt-3 p-3">
+        <h5>Price: {{order.item.price}}<br><br>
+        <strong><span>{{order.status}}</span></strong>
+
+            {%if order.status != "cancel"%}
+                    <a href="{% url 'cancelorder' order.id%}" class="btn btn-outline-danger">Cancel</a>
+
+            {%endif%}
+
+        </h5>
+    </div>
+
+
+</div>
+{%endfor%}
+<hr>
+<div class="row mt-3 ">
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+    <div class="col-4">
+        <strong>Total Price</strong><span>{{total}}</span>
+    </div>
+</div>
+
+
+{% endblock %}

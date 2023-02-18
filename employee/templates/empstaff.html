@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<!--<div class="row">-->
+<!--        <img src="https://media-exp1.licdn.com/dms/image/C4E1BAQEePAdqewmOOw/company-background_10000/0/1543256375771?e=2147483647&v=beta&t=ehP_5b4VOLOKTkikO8tISTdiC_xTak3k4PaGPjHutJA"-->
+<!--             alt="" height="500px" width="300px">-->
+<!--    </div>-->
+
+<div class="row mt-5 ">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <center><h1>Staff Details</h1></center>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Place</th>
+                <th>Experience</th>
+
+            </tr>
+            {%for staff in staff%}
+            <tr>
+                <td>{{staff.idnum}}</td>
+                <td>{{staff.name}}</td>
+                <td>{{staff.age}}</td>
+                <td>{{staff.place}}</td>
+                <td>{{staff.experience}}</td>
+
+                <td><a href="{% url 'empstaff_detail' staff.id%}" class="btn btn-success">View</a></td>
+                <td><a href="{% url 'empstaff_edit' staff.id %}" class="btn btn-dark">Edit</a></td>
+                <td><a href="{% url 'empdelete' staff.id%}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+    <div class="col-2"></div>
+
+
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Staff DETAILS</h5>
+                <p class="card-text">ID: {{staff.idnum}}</p>
+                <p class="card-text">Staff Name: {{staff.name}}</p>
+              <p class="card-text">Age: {{staff.age}}</p>
+              <p class="card-text">Place: {{staff.place}}</p>
+                <p class="card-text">Experience: {{staff.experience}}</p>
+
+                <a href="{% url 'empstaff_list' %}"> <input type="submit" value="Back To Main Menu"
+                                                          class="btn btn-success"></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
