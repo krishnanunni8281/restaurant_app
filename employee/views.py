@@ -18,7 +18,7 @@ from customer.models import Orders
 
 
 class EmpBase(TemplateView):
-    template_name = "baseemp.html"
+    template_name = "base.html"
 
 
 class EmpStaffList(ListView):
